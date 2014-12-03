@@ -11,7 +11,7 @@ module.exports =  {
     options:{
         compress: true,
         csslint:{
-            'unique-headings':false,
+            'unique-headings':false
         }
     }
 };
