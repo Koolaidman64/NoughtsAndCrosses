@@ -10,7 +10,13 @@
 
 <body ng-controller="noughtsAndCrossesController">
 
-<p>{{ 2 + 2 }}</p>
+<div>
+
+    <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard}} </h2>
+
+    <button ng-click="newGame()">Get Game Outcome</button>
+
+</div>
 
 <script src="scripts/built.js"></script>
 </body>
