@@ -5,25 +5,33 @@ module.exports =  {
         cwd: '',
         src: 'main-app/app/scripts/*.js',
         dest: '.build/',
-        expand: true,
+        expand: true
     },
 
     file: {
         cwd: '',
         src: '.grunt/*.js',
         dest: '.build/',
-        expand: true,
+        expand: true
     },
 
     grunt: {
         cwd: '',
         src: 'gruntfile.js',
         dest: '.build/',
-        expand: true,
+        expand: true
     },
+
+    services: {
+        cwd: '',
+        src: 'main-app/app/scripts/services',
+        dest: '.build/',
+        expand: true
+    },
+
     options: {
 
-        quotmark: 'single',
+        quotmark: 'single'
 
     }
 
