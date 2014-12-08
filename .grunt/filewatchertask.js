@@ -46,8 +46,15 @@ module.exports =  {
         tasks:['nostart'],
         options:{
             spawn:false
+        },
+
+    services:{
+        files:'main-app/app/scripts/services/*',
+        tasks:['nostart'],
+        options:{
+            spawn:false
         }
     }
 
-};
+}};
 

@@ -1,11 +1,8 @@
 
 noughtsAndCrossesApp.controller('noughtsAndCrossesController', function($scope,gameModel) {
+    $scope.gameModel = gameModel;
+    $scope.newGame = function () {
 
-    $scope.gameModel= gameModel;
-
-    $scope.newGame = function(){
-
-        gameModel.newGame();
-
+        gameModel.startNewGame();
     };
 });
