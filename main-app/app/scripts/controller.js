@@ -1,10 +1,11 @@
 
 angular.module('noughtsAndCrossesApp')
-    .controller('noughtsAndCrossesController',['$scope','gameModel','gameAPI', function ($scope,gameModel,gameAPI) {
+    .controller('NoughtsAndCrossesController',['$scope','gameModel','gameAPI', function ($scope,gameModel,gameAPI) {
 
         $scope.gameModel = gameModel;
+
         $scope.startNewGame = function() {
-            gameAPI.startNewGame();
+            gameAPI.startNewGame($scope.gameModel.player1, $scope.gameModel.player2);
         };
     }
 ]);

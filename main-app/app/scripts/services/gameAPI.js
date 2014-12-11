@@ -1,6 +1,6 @@
 
 angular.module('noughtsAndCrossesApp')
-    .service('gameAPI',['$http', function($http) {
+    .service('gameAPI',['$http','gameModel', function($http) {
 
     var serverPost = {
         method: 'post',
@@ -20,14 +20,14 @@ angular.module('noughtsAndCrossesApp')
             success(function (data) {
                 me.gameboard = data.gameboard;
                 me.outcome = data.outcome;
-                me.winner = data.winner;
+                me.winner = data.outcome;
             });
     };
 
-    this.startNewGame = function() {
+    this.startNewGame = function(player1,player2) {
 
         serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
-        serverPost.data = {'player1': 'random', 'player2': 'random'};
+        serverPost.data = {'player1': player1,'player2': player2};
         server();
     };
 }]);
