@@ -5,7 +5,7 @@ angular.module('noughtsAndCrossesApp')
         $scope.gameModel = gameModel;
 
         $scope.startNewGame = function() {
-            gameAPI.startNewGame($scope.gameModel.player1, $scope.gameModel.player2);
+            gameAPI.startNewGame($scope.playertype1, $scope.playertype2);
         };
 
         $scope.makeMove = function() {

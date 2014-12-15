@@ -23,10 +23,10 @@ angular.module('noughtsAndCrossesApp')
             });
     };
 
-    this.startNewGame = function(player1,player2) {
+    this.startNewGame = function(playertype1,playertype2) {
 
         serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
-        serverPost.data = {'player1': player1,'player2': player2};
+        serverPost.data = {'player1': playertype1,'player2': playertype2};
         server();
     };
 
