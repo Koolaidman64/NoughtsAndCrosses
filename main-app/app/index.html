@@ -12,13 +12,24 @@
 
 <div>
 
-    <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner}} </h2>
+    <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner }} </h2>
 
     <button ng-click="startNewGame()">Start new game</button>
-    <button ng-click="makeMove()">Make a move</button>
+    <button ng-click="makeMove(playerNumber,chosenSquare)">Make a move</button>
+
+</div>
+
+
+<div>
+
+    player: <input type="text" ng-model="playerNumber"><br>
+    square: <input type="text" ng-model="chosenSquare"><br>
+    <br>
+    Choosen Actions: {{ playerNumber + chosenSquare }}
 
 </div>
 
 <script src="scripts/built.js"></script>
+
 </body>
 </html>

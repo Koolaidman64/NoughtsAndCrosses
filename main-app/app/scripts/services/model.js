@@ -8,7 +8,7 @@ angular.module('noughtsAndCrossesApp')
         this.gameboard = '000000000';
         this.winner = 0;
         this.player1 = 'human';
-        this.player2 = 'human';
+        this.player2 = 'random';
     };
 
     return new gameModel();

@@ -30,10 +30,10 @@ angular.module('noughtsAndCrossesApp')
         server();
     };
 
-     this.makeMove = function() {
+     this.makeMove = function(playerNumber,chosenSquare) {
 
         serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove';
-        serverPost.data = {playerNumber:1, chosenSquare:0};
+        serverPost.data = {playerNumber:playerNumber, chosenSquare:chosenSquare};
         server();
     };
 

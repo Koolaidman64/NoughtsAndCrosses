@@ -9,7 +9,7 @@ angular.module('noughtsAndCrossesApp')
         };
 
         $scope.makeMove = function() {
-            gameAPI.makeMove();
+            gameAPI.makeMove($scope.playerNumber, $scope.chosenSquare);
         };
     }
 ]);

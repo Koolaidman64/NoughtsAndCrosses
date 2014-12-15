@@ -1,4 +1,5 @@
 module.exports =  {
+
         images: {
             cwd: '',
             src: 'main-app/app/images/*',
