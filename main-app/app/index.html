@@ -9,14 +9,17 @@
 </head>
 
 <body ng-controller="NoughtsAndCrossesController">
+<div id="contentContainer">
 
-<div>
+<header>
+    <div>
 
     <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner }} </h2>
 
-</div>
+    </div>
+</header>
 
-<div>
+<!-- <div>
 
     <button ng-click="playerType1 = 'human'">Human</button>
     <button ng-click="playerType1 = 'random'">Random</button>
@@ -29,38 +32,39 @@
     <button ng-click="playerType2 = 'pre-trained'">PreTrained</button>
 
     Player2: <input type="text" ng-model="playerType2"><br>
-    <br>
-    <button ng-click="startNewGame(chosenSquare,playerNumber)">Start new game</button>
 
 </div>
 
-</br>
+<br> -->
 
-<div>
+<aside>
+    <div>
 
-    <p>Choose the player</p>
+        <button id="newGame" ng-click="startNewGame(playerNumber)">Start new game</button>
 
-    <button type="text" ng-click="playerNumber = 1">1</button>
-    <button type="text" ng-click="playerNumber = 2">2</button>
+    </div>
+</aside>
 
-    <p>Choose the square</p>
+<main>
+    <div>
 
-    <button ng-click="chosenSquare = 0;makeMove(chosenSquare,playerNumber)">1</button>
-    <button ng-click="chosenSquare = 1;makeMove(chosenSquare,playerNumber)">2</button>
-    <button ng-click="chosenSquare = 2;makeMove(chosenSquare,playerNumber)">3</button>
     <br>
-    <button ng-click="chosenSquare = 3;makeMove(chosenSquare,playerNumber)">4</button>
-    <button ng-click="chosenSquare = 4;makeMove(chosenSquare,playerNumber)">5</button>
-    <button ng-click="chosenSquare = 5;makeMove(chosenSquare,playerNumber)">6</button>
+    <button class="gridSquare" ng-click="makeMove(0)">0</button>
+    <button class="gridSquare" ng-click="makeMove(1)">1</button>
+    <button class="gridSquare" ng-click="makeMove(2)">2</button>
     <br>
-    <button ng-click="chosenSquare = 6;makeMove(chosenSquare,playerNumber)">7</button>
-    <button ng-click="chosenSquare = 7;makeMove(chosenSquare,playerNumber)">8</button>
-    <button ng-click="chosenSquare = 8;makeMove(chosenSquare,playerNumber)">9</button>
+    <button class="gridSquare" ng-click="makeMove(3)">3</button>
+    <button class="gridSquare" ng-click="makeMove(4)">4</button>
+    <button class="gridSquare" ng-click="makeMove(5)">5</button>
     <br>
-    Choosen Actions: {{ playerNumber + ' ' + chosenSquare }}
+    <button class="gridSquare" ng-click="makeMove(6)">6</button>
+    <button class="gridSquare" ng-click="makeMove(7)">7</button>
+    <button class="gridSquare" ng-click="makeMove(8)">8</button>
+
+    </div>
+</main>
 
 </div>
-
 <script src="scripts/built.js"></script>
 
 </body>
