@@ -3,6 +3,8 @@ angular.module('noughtsAndCrossesApp')
     .controller('NoughtsAndCrossesController',['$scope','gameModel','gameAPI', function ($scope,gameModel,gameAPI) {
 
         $scope.gameModel = gameModel;
+        $scope.playerType1 = '';
+        $scope.playerType2 = '';
 
         $scope.startNewGame = function() {
             gameAPI.startNewGame($scope.playerType1, $scope.playerType2);
