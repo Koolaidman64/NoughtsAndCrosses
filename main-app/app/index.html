@@ -14,16 +14,24 @@
 
     <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner }} </h2>
 
-    <button ng-click="startNewGame()">Start new game</button>
-    <button ng-click="makeMove(playerNumber,chosenSquare)">Make a move</button>
-
 </div>
-
 
 <div>
 
-    player: <input type="text" ng-model="playerNumber"><br>
-    square: <input type="text" ng-model="chosenSquare"><br>
+    Player1: <input type="text" ng-model="playerType1"><br>
+    Player2: <input type="text" ng-model="playerType2"><br>
+
+    <button ng-click="startNewGame(playerType1,playerType2)">Start new game</button>
+
+</div>
+
+</br>
+
+<div>
+
+    Player: <input type="text" ng-model="playerNumber"><br>
+    Square: <input type="text" ng-model="chosenSquare"><br>
+    <button ng-click="makeMove(playerNumber,chosenSquare)">Make a move</button>
     <br>
     Choosen Actions: {{ playerNumber + chosenSquare }}
 
