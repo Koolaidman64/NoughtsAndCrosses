@@ -1,0 +1,74 @@
+* {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+  background-color: #a4b5ff;
+  font-size: 37px;
+}
+
+header {
+  margin:30px;
+}
+
+main {
+  display: inline-block;
+  margin-left:310px;
+}
+
+aside {
+  display: inline-block;
+  vertical-align: top;
+  margin-left:465px;
+}
+
+h1 {
+  margin-left:170px;
+}
+
+#contentContainer {
+  width: 1100px;
+  Margin-left: auto;
+  Margin-right: auto;
+  background-color: #eaeeff;
+}
+
+#contentContainerAside {
+  width: 1100px;
+  height:150px;
+  Margin-left: auto;
+  Margin-right: auto;
+  background-color: #fdff7a;
+}
+
+#newGame {
+  width: 150px;
+  height: 140px;
+  margin:4px;
+}
+
+.gridSquare {
+  width: @gridSquareWidth;
+  height: @gridSquareHeight;
+  margin:4px;
+  outline: 2px solid;
+  float: left;
+  background:url(/images/Paul&BarrySprite.png) 0 0 no-repeat;
+  background-size: 500px,150px;
+  overflow: hidden;
+  position: relative;
+
+  &.imageDisplay1 {
+    background-position: -150px 0;
+  }
+
+  &.imageDisplay2 {
+    background-position: -300px 0;
+  }
+
+};
+
+#gameBoard {
+  width: 480px;
+  height: 500px;
+}
