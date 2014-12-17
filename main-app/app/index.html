@@ -9,34 +9,62 @@
 </head>
 
 <body ng-controller="NoughtsAndCrossesController">
+<div id="contentContainer">
 
-<div>
+<header>
+    <div>
 
     <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner }} </h2>
 
-</div>
+    </div>
+</header>
 
-<div>
+<!-- <div>
+
+    <button ng-click="playerType1 = 'human'">Human</button>
+    <button ng-click="playerType1 = 'random'">Random</button>
+    <button ng-click="playerType1 = 'pre-trained'">PreTrained</button>
 
     Player1: <input type="text" ng-model="playerType1"><br>
+
+    <button ng-click="playerType2 = 'human'">Human</button>
+    <button ng-click="playerType2 = 'random'">Random</button>
+    <button ng-click="playerType2 = 'pre-trained'">PreTrained</button>
+
     Player2: <input type="text" ng-model="playerType2"><br>
 
-    <button ng-click="startNewGame(playerType1,playerType2)">Start new game</button>
-
 </div>
 
-</br>
+<br> -->
 
-<div>
+<aside>
+    <div>
 
-    Player: <input type="text" ng-model="playerNumber"><br>
-    Square: <input type="text" ng-model="chosenSquare"><br>
-    <button ng-click="makeMove(playerNumber,chosenSquare)">Make a move</button>
+        <button id="newGame" ng-click="startNewGame(playerNumber)">Start new game</button>
+
+    </div>
+</aside>
+
+<main>
+    <div>
+
     <br>
-    Choosen Actions: {{ playerNumber + chosenSquare }}
+    <button class="gridSquare" ng-click="makeMove(0)">0</button>
+    <button class="gridSquare" ng-click="makeMove(1)">1</button>
+    <button class="gridSquare" ng-click="makeMove(2)">2</button>
+    <br>
+    <button class="gridSquare" ng-click="makeMove(3)">3</button>
+    <button class="gridSquare" ng-click="makeMove(4)">4</button>
+    <button class="gridSquare" ng-click="makeMove(5)">5</button>
+    <br>
+    <button class="gridSquare" ng-click="makeMove(6)">6</button>
+    <button class="gridSquare" ng-click="makeMove(7)">7</button>
+    <button class="gridSquare" ng-click="makeMove(8)">8</button>
+
+    </div>
+</main>
 
 </div>
-
 <script src="scripts/built.js"></script>
 
 </body>
