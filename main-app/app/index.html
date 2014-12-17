@@ -14,7 +14,7 @@
 <header>
     <div>
 
-    <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner }} </h2>
+        <h2> {{ gameModel.outcome + ' ' + gameModel.gameboard + ' The winner is: ' + gameModel.winner }} </h2>
 
     </div>
 </header>
@@ -37,32 +37,39 @@
 
 <br> -->
 
-<aside>
-    <div>
-
-        <button id="newGame" ng-click="startNewGame(playerNumber)">Start new game</button>
-
-    </div>
-</aside>
-
 <main>
-    <div>
+    <div id="gameBoard">
+        <div class="gridSquare" ng-click="makeMove(0)">0</div>
+        <div class="gridSquare" ng-click="makeMove(1)">1</div>
+        <div class="gridSquare" ng-click="makeMove(2)">2</div>
 
-    <br>
-    <button class="gridSquare" ng-click="makeMove(0)">0</button>
-    <button class="gridSquare" ng-click="makeMove(1)">1</button>
-    <button class="gridSquare" ng-click="makeMove(2)">2</button>
-    <br>
-    <button class="gridSquare" ng-click="makeMove(3)">3</button>
-    <button class="gridSquare" ng-click="makeMove(4)">4</button>
-    <button class="gridSquare" ng-click="makeMove(5)">5</button>
-    <br>
-    <button class="gridSquare" ng-click="makeMove(6)">6</button>
-    <button class="gridSquare" ng-click="makeMove(7)">7</button>
-    <button class="gridSquare" ng-click="makeMove(8)">8</button>
+        <div class="gridSquare" ng-click="makeMove(3)">3</div>
+        <div class="gridSquare" ng-click="makeMove(4)">4</div>
+        <div class="gridSquare" ng-click="makeMove(5)">5</div>
 
+        <div class="gridSquare" ng-click="makeMove(6)">6</div>
+        <div class="gridSquare" ng-click="makeMove(7)">7</div>
+        <div class="gridSquare" ng-click="makeMove(8)">8</div>
     </div>
 </main>
+
+<div id="contentContainerAside">
+    <aside>
+        <div>
+
+            <button id="newGame" ng-click="startNewGame(playerNumber)">Start new game</button>
+
+        </div>
+    </aside>
+</div>
+
+<div id="contentContainerFooter">
+    <footer>
+        <div>
+
+        </div>
+    </footer>
+</div>
 
 </div>
 <script src="scripts/built.js"></script>
