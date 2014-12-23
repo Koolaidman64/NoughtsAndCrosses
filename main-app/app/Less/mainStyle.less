@@ -2,6 +2,11 @@
   font-family: Arial, Helvetica, sans-serif
 }
 
+@font-face {
+  font-family: pixelFont;
+  src: url(/images/ice_pixel-7.ttf);
+}
+
 body {
   background:url(/images/background.jpg);
   background-size:cover;
@@ -10,6 +15,7 @@ body {
 main {
   display: inline-block;
   margin-left:260px;
+  margin-bottom:1px;
 }
 
 aside {
@@ -19,11 +25,14 @@ aside {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 70px;
+  font-family: pixelFont;
   display: inline-block;
   vertical-align: top;
-  margin-left:275px;
-  color: #8e0b0b;
+  margin-left:268px;
+  margin-top:5px;
+  margin-bottom:0px;
+  color: #fbfbff;
 }
 
 p {
@@ -37,7 +46,6 @@ p {
   Margin-left: auto;
   Margin-right: auto;
   background-image:url(/images/content_background.png);
-  background-repeat: no-repeat;
   background-size: 1000px 655px;
 }
 
@@ -50,7 +58,8 @@ p {
 #contentContainerFooter {
   width: 1000px;
   height:20px;
-  background-color: #8e0b0b;
+  color: #ffffff;
+  background-color: #700b0b;
 }
 
 #newGame {
@@ -61,7 +70,7 @@ p {
 
 #gameBoard {
   width: 480px;
-  height: 500px;
+  height: 450px;
 }
 
 .gridSquare {
@@ -70,17 +79,17 @@ p {
   margin:4px;
   outline: 2px solid;
   float: left;
-  background:url(/images/Paul&BarrySprite.png) 0 0 no-repeat;
+  background:url(/images/8bitSprite.png) 0 0 no-repeat;
   background-size: 500px,150px;
   overflow: hidden;
   position: relative;
 
   &.imageDisplay1 {
-    background-position: -150px 0;
+    background-position: -157px 0;
   }
 
   &.imageDisplay2 {
-    background-position: -310px 0;
+    background-position: -316px 0;
   }
 
 };
