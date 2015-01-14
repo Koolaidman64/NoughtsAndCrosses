@@ -23,17 +23,17 @@ angular.module('noughtsAndCrossesApp')
             });
     };
 
-    this.startNewGame = function(playerType1,playerType2) {
+    this.startNewGame = function(player1,player2) {
 
         serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
-        serverPost.data = {'player1': playerType1,'player2': playerType2};
+        serverPost.data = {'player1': player1,'player2': player2};
         server();
     };
 
-     this.makeMove = function(playerTurn,chosenSquare) {
+     this.makeMove = function(currentPlayer,chosenSquare) {
 
         serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove';
-        serverPost.data = {playerNumber:playerTurn, chosenSquare:chosenSquare};
+        serverPost.data = {playerNumber:gameModel.currentPlayer, chosenSquare:chosenSquare};
         server();
     };
 
