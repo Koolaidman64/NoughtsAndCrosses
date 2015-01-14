@@ -33,9 +33,13 @@
 
 <div id="contentContainerAside">
     <aside>
-        <div id=playerTypes>
-            <button id="newGame" ng-click="startNewGame()">Start new game</button>
-        </div>
+
+        <div ng-click="changePlayer1()" class="changePlayer1 playerTypeImage{{gameModel.player1}}"></div>
+
+        <button id="newGame" ng-click="startNewGame()">Start new game</button>
+
+        <div ng-click="changePlayer2()" class="changePlayer2 playerTypeImage{{gameModel.player2}}"></div>
+
     </aside>
 </div>
 
@@ -44,11 +48,6 @@
         <div>
             <p id="copyRight">Adam Dixon</p>
         </div>
-            <div>
-                 <div ng-click="changePlayer1()" class="changePlayer1 playerTypeImage{{gameModel.player1}}"></div>
-
-                 <div ng-click="changePlayer2()" class="changePlayer2 playerTypeImage{{gameModel.player2}}"></div>
-            </div>
     </footer>
 </div>
 
@@ -57,3 +56,4 @@
 
 </body>
 </html>
+

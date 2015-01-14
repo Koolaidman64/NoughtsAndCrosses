@@ -50,7 +50,7 @@ p {
 
 #contentContainerAside {
   width: 1000px;
-  height:75px;
+  height:200px;
   background-color: #000000;
 }
 
@@ -66,18 +66,13 @@ p {
   font-size:30px;
 }
 
-#playerTypes {
-  margin-left:183px;
-}
-
-.typeButtons{
-  width: 75px;
-  height: 35px;
-}
-
 #newGame {
-  width: 150px;
-  height: 68px;
+  width: 453px;
+  height: 100px;
+  margin-left:83px;
+  margin-top:20px;
+  display:inline-block;
+  vertical-align: top;
 }
 
 #gameBoard {
@@ -86,11 +81,11 @@ p {
 }
 
 .gridSquare {
+  background:url(/images/8bitSprite.png) 0 0 no-repeat;
   width: @gridSquareWidth;
   height: @gridSquareHeight;
   margin:1px;
   outline: 2px solid;
-  background:url(/images/8bitSprite.png) 0 0 no-repeat;
   background-size: 500px,150px;
   overflow: hidden;
   display:inline-block;
@@ -106,33 +101,38 @@ p {
 };
 
 .changePlayer1 {
-  background:url(/images/8bitSprite.png);
-  background-size: 600px, 150px;
-  margin:6px;
-  width: 210px;
-  height: 160px;
+  background:url(/images/PlayerTypeSprite.png);
+  background-size: 600px, 175px;
+  width: 175px;
+  height: 175px;
+  overflow: hidden;
+  display:inline-block;
+  position: relative;
 
   &.playerTypeImagerandom{
-    background-position: -157px 0;
+    background-position: -190px 0;
   }
 
   &.playerTypeImagepre-trained{
-    background-position: -316px 0;
+    background-position: -400px 0;
   }
 };
 
 .changePlayer2 {
-  background:url(/images/8bitSprite.png);
-  background-size: 600px, 150px;
-  margin:6px;
-  width: 210px;
-  height: 160px;
+  background:url(/images/PlayerTypeSprite.png);
+  background-size: 600px, 175px;
+  width: 175px;
+  height: 175px;
+  overflow: hidden;
+  display:inline-block;
+  position: relative;
+  margin-left:90px;
 
   &.playerTypeImagerandom{
-    background-position: -157px 0;
+    background-position: -190px 0;
   }
 
   &.playerTypeImagepre-trained{
-    background-position: -316px 0;
+    background-position: -400px 0;
   }
 };
