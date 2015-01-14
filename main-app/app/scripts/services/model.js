@@ -9,7 +9,7 @@ angular.module('noughtsAndCrossesApp')
         this.player2 = 'human';
         this.currentPlayer = '1';
 
-        var changePlayerType = function(player1){
+        var player1TypeChange = function(player1){
             if(player1 === 'human'){
                 return 'random';
             }
@@ -19,12 +19,22 @@ angular.module('noughtsAndCrossesApp')
             return 'human';
         };
 
-        this.changePlayer1 = function(){
-            this.player1 = changePlayerType(this.player1);
+        var player2TypeChange = function(player2){
+            if(player2 === 'human'){
+                return 'random';
+            }
+            if(player2 === 'random'){
+                return 'pre-trained';
+            }
+            return 'human';
         };
 
-        this.changePlayer2 = function(){
-            this.player2 = changePlayerType(this.player2);
+        this.changePlayerType1 = function(){
+            this.player1 = player1TypeChange(this.player1);
+        };
+
+        this.changePlayerType2 = function(){
+            this.player2 = player2TypeChange(this.player2);
         };
 
     return this;
