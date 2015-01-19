@@ -7,7 +7,7 @@ angular.module('noughtsAndCrossesApp')
         this.winner = 0;
         this.player1 = 'human';
         this.player2 = 'human';
-        this.currentPlayer = '1';
+        this.currentPlayer = 1;
 
         var player1TypeChange = function(player1){
             if(player1 === 'human'){
@@ -28,6 +28,34 @@ angular.module('noughtsAndCrossesApp')
             }
             return 'human';
         };
+
+         this.changePlayerNumber = function() {
+            var me = this;
+
+            if (me.player1 !== 'human') {
+                return;
+            }
+            if (me.player2 !== 'human') {
+                return;
+            }
+            if (me.currentPlayer === 1){
+                me.currentPlayer = 2;
+            }
+            else {
+                me.currentPlayer = 1;
+            }
+        };
+
+         this.firstPlayer = function() {
+             var me = this;
+
+             if (me.player1 === 'human') {
+                 me.currentPlayer = 1;
+             }
+             else if(me.player2 === 'human'){
+                 me.currentPlayer = 2;
+             }
+         };
 
         this.changePlayerType1 = function(){
             this.player1 = player1TypeChange(this.player1);

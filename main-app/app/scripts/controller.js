@@ -7,10 +7,12 @@ angular.module('noughtsAndCrossesApp')
 
         $scope.startNewGame = function () {
             gameAPI.startNewGame($scope.gameModel.player1, $scope.gameModel.player2);
+            gameModel.firstPlayer();
         };
 
         $scope.makeMove = function (chosenSquare) {
-            gameAPI.makeMove($scope.gameModel.player1, chosenSquare);
+            gameAPI.makeMove(chosenSquare);
+            gameModel.changePlayerNumber();
         };
 
         $scope.changePlayerType1 = function () {
@@ -19,5 +21,9 @@ angular.module('noughtsAndCrossesApp')
 
         $scope.changePlayerType2 = function () {
             $scope.gameModel.changePlayerType2();
+        };
+
+        $scope.changePlayerNumber = function () {
+            $scope.gameModel.changePlayerNumber();
         };
     }]);
