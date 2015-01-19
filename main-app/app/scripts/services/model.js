@@ -49,11 +49,11 @@ angular.module('noughtsAndCrossesApp')
          this.firstPlayer = function() {
              var me = this;
 
-             if (me.player1 !== 'human') {
-                 me.currentPlayer = 2;
-             }
-             else if(me.player1 === 'human'){
+             if (me.player1 === 'human') {
                  me.currentPlayer = 1;
+             }
+             else if(me.player2 === 'human'){
+                 me.currentPlayer = 2;
              }
          };
 
