@@ -29,18 +29,33 @@ angular.module('noughtsAndCrossesApp')
             return 'human';
         };
 
-        var changePlayerNumber = function() {
+         this.changePlayerNumber = function() {
             var me = this;
+
             if (me.player1 !== 'human') {
                 return;
             }
             if (me.player2 !== 'human') {
                 return;
             }
-
-            me.currentPlayer = 1;
-
+            if (me.currentPlayer === 1){
+                me.currentPlayer = 2;
+            }
+            else {
+                me.currentPlayer = 1;
+            }
         };
+
+         this.firstPlayer = function() {
+             var me = this;
+
+             if (me.player1 !== 'human') {
+                 me.currentPlayer = 2;
+             }
+             else if(me.player1 === 'human'){
+                 me.currentPlayer = 1;
+             }
+         };
 
         this.changePlayerType1 = function(){
             this.player1 = player1TypeChange(this.player1);
@@ -48,11 +63,6 @@ angular.module('noughtsAndCrossesApp')
 
         this.changePlayerType2 = function(){
             this.player2 = player2TypeChange(this.player2);
-        };
-
-        this.switchPlayer = function(){
-            var me = this;
-            me.currentPlayer = changePlayerNumber();
         };
 
     return this;

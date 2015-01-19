@@ -20,7 +20,6 @@ angular.module('noughtsAndCrossesApp')
                 gameModel.gameboard = data.gameboard;
                 gameModel.outcome = data.outcome;
                 gameModel.winner = data.winner;
-                gameModel.switchPlayer();
             });
     };
 
@@ -34,7 +33,7 @@ angular.module('noughtsAndCrossesApp')
      this.makeMove = function(chosenSquare) {
 
         serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove';
-        serverPost.data = {playerNumber:1, chosenSquare:chosenSquare};
+        serverPost.data = {playerNumber:gameModel.currentPlayer, chosenSquare:chosenSquare};
         server();
     };
 
