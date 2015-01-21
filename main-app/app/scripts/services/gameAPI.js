@@ -2,39 +2,49 @@
 angular.module('noughtsAndCrossesApp')
     .service('gameAPI',['$http','gameModel', function($http,gameModel) {
 
-    var serverPost = {
-        method: 'post',
-        url: '',
-        'withCredentials': 'true',
+        var serverPost = {
+            method: 'post',
+            url: '',
+            'withCredentials': 'true',
 
-        headers: {
-            'content-type': 'application/json;charset=UTF-8'
-        },
+            headers: {
+                'content-type': 'application/json;charset=UTF-8'
+            },
 
-        data: ''
-    };
+            data: ''
+        };
 
-    var server = function () {
-        $http(serverPost).
-            success(function (data) {
-                gameModel.gameboard = data.gameboard;
-                gameModel.outcome = data.outcome;
-                gameModel.winner = data.winner;
-            });
-    };
+        var server = function () {
+            $http(serverPost).
+                success(function (data) {
+                    gameModel.gameboard = data.gameboard;
+                    gameModel.outcome = data.outcome;
+                    gameModel.winner = data.winner;
 
-    this.startNewGame = function(player1,player2) {
+                    if (gameModel.outcome !== 'Win') {
+                        document.getElementById('playerDraw').style.visibility = 'visible';
+                    }
+                    if (gameModel.winner === '1') {
+                        document.getElementById('winner1').style.visibility = 'visible';
+                    }
+                    else if(gameModel.winner === '2') {
+                        document.getElementById('winner2').style.visibility = 'visible';
+                    }
+                });
+        };
 
-        serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
-        serverPost.data = {'player1': player1,'player2': player2};
-        server();
-    };
+        this.startNewGame = function(player1,player2) {
 
-     this.makeMove = function(chosenSquare) {
+            serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
+            serverPost.data = {'player1': player1,'player2': player2};
+            server();
+        };
 
-        serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove';
-        serverPost.data = {playerNumber:gameModel.currentPlayer, chosenSquare:chosenSquare};
-        server();
-    };
+        this.makeMove = function(chosenSquare) {
 
-}]);
+            serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove';
+            serverPost.data = {playerNumber:gameModel.currentPlayer, chosenSquare:chosenSquare};
+            server();
+        };
+
+    }]);
