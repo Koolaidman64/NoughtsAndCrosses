@@ -16,6 +16,8 @@
     </header>
 
     <main>
+
+
         <div id="gameBoard">
 
             <div class="gridSquare imageDisplay{{ gameModel.gameboard[0]}}" ng-click="makeMove(0)"></div>
@@ -30,14 +32,14 @@
             <div class="gridSquare imageDisplay{{ gameModel.gameboard[7]}}" ng-click="makeMove(7)"></div>
             <div class="gridSquare imageDisplay{{ gameModel.gameboard[8]}}" ng-click="makeMove(8)"></div>
 
-            <img id="winner1" src="/images/Winner1.png" alt="winner">
-            <img id="winner2" src="/images/Winner2.png" alt="winner">
-
         </div>
     </main>
 
     <div id="contentContainerAside">
         <aside>
+
+            <img id="winner1" src="/images/Winner1.png" alt="winner">
+            <img id="winner2" src="/images/Winner2.png" alt="winner">
 
             <div ng-click="changePlayerType1()" class="changePlayer1 playerTypeImage{{gameModel.player1}}"></div>
 

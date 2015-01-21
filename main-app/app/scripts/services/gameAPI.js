@@ -38,6 +38,8 @@ angular.module('noughtsAndCrossesApp')
             serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
             serverPost.data = {'player1': player1,'player2': player2};
             server();
+            document.getElementById('winner1').style.visibility = 'hidden';
+            document.getElementById('winner2').style.visibility = 'hidden';
         };
 
         this.makeMove = function(chosenSquare) {
