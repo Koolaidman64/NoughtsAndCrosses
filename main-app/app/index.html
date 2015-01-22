@@ -9,51 +9,57 @@
 <body ng-controller="NoughtsAndCrossesController">
 <div id="contentContainer">
 
-<header>
-    <div>
-         <h1>ARCADE SIMULATOR</h1>
-    </div>
-</header>
-
-<main>
-    <div id="gameBoard">
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[0]}}" ng-click="makeMove(0)"></div>
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[1]}}" ng-click="makeMove(1)"></div>
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[2]}}" ng-click="makeMove(2)"></div>
-
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[3]}}" ng-click="makeMove(3)"></div>
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[4]}}" ng-click="makeMove(4)"></div>
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[5]}}" ng-click="makeMove(5)"></div>
-
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[6]}}" ng-click="makeMove(6)"></div>
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[7]}}" ng-click="makeMove(7)"></div>
-        <div class="gridSquare imageDisplay{{ gameModel.gameboard[8]}}" ng-click="makeMove(8)"></div>
-    </div>
-</main>
-
-<div id="contentContainerAside">
-    <aside>
-
-        <div ng-click="changePlayerType1()" class="changePlayer1 playerTypeImage{{gameModel.player1}}"></div>
-
-        <button id="newGame" ng-click="startNewGame()">Start new game</button>
-
-        <div ng-click="changePlayerType2()" class="changePlayer2 playerTypeImage{{gameModel.player2}}"></div>
-
-    </aside>
-</div>
-
-<div id="contentContainerFooter">
-    <footer>
+    <header>
         <div>
-            <p id="copyRight">Adam Dixon</p>
+            <h1>ARCADE SIMULATOR</h1>
         </div>
-    </footer>
-</div>
+    </header>
+
+    <main>
+
+
+        <div id="gameBoard">
+
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[0]}}" ng-click="makeMove(0)"></div>
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[1]}}" ng-click="makeMove(1)"></div>
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[2]}}" ng-click="makeMove(2)"></div>
+
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[3]}}" ng-click="makeMove(3)"></div>
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[4]}}" ng-click="makeMove(4)"></div>
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[5]}}" ng-click="makeMove(5)"></div>
+
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[6]}}" ng-click="makeMove(6)"></div>
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[7]}}" ng-click="makeMove(7)"></div>
+            <div class="gridSquare imageDisplay{{ gameModel.gameboard[8]}}" ng-click="makeMove(8)"></div>
+
+        </div>
+    </main>
+
+    <div id="contentContainerAside">
+        <aside>
+
+            <img id="winner1" src="/images/Winner1.png" alt="winner">
+            <img id="winner2" src="/images/Winner2.png" alt="winner">
+
+            <div ng-click="changePlayerType1()" class="changePlayer1 playerTypeImage{{gameModel.player1}}"></div>
+
+            <button id="newGame" ng-click="startNewGame()">Start new game</button>
+
+            <div ng-click="changePlayerType2()" class="changePlayer2 playerTypeImage{{gameModel.player2}}"></div>
+
+        </aside>
+    </div>
+
+    <div id="contentContainerFooter">
+        <footer>
+            <div>
+                <p id="copyRight">Adam Dixon</p>
+            </div>
+        </footer>
+    </div>
 
 </div>
 <script src="scripts/built.js"></script>
 
 </body>
 </html>
-
