@@ -1,6 +1,6 @@
 
 angular.module('noughtsAndCrossesApp')
-    .service('gameAPI',['$http','gameModel', function($http,gameModel) {
+    .service('gameAPI',['$http','gameModel','$q', function($http,gameModel,$q) {
 
         var serverPost = {
             method: 'post',
@@ -21,16 +21,44 @@ angular.module('noughtsAndCrossesApp')
                     gameModel.outcome = data.outcome;
                     gameModel.winner = data.winner;
 
-                    if (gameModel.outcome !== 'Win') {
-                        document.getElementById('playerDraw').style.visibility = 'visible';
-                    }
-                    if (gameModel.winner === '1') {
-                        document.getElementById('winner1').style.visibility = 'visible';
-                    }
-                    else if(gameModel.winner === '2') {
-                        document.getElementById('winner2').style.visibility = 'visible';
-                    }
+                    var winnerOutcome = function() {
+                        var deferred = $q.defer();
+
+                        setTimeout(function () {
+                            if (gameModel.outcome === 'Win') {
+                                deferred.resolve();
+                            } else {
+                                deferred.reject();
+                            }
+                        }, 100);
+
+                        return deferred.promise;
+                    };
+
+                    var promise = winnerOutcome();
+                    promise.then(function() {
+                        winnerDisplay();
+                    }, function() {
+                        drawDisplay();
+                    });
                 });
+        };
+
+        var winnerDisplay = function() {
+            if (gameModel.winner === '1') {
+                document.getElementById('winner1').style.visibility = 'visible';
+            }
+            else if (gameModel.winner === '2') {
+                document.getElementById('winner2').style.visibility = 'visible';
+            }
+        };
+
+        var drawDisplay = function() {
+
+            if (gameModel.outcome === 'Draw') {
+                document.getElementById('player1Draw').style.visibility = 'visible';
+                document.getElementById('player2Draw').style.visibility = 'visible';
+            }
         };
 
         this.startNewGame = function(player1,player2) {
@@ -40,6 +68,8 @@ angular.module('noughtsAndCrossesApp')
             server();
             document.getElementById('winner1').style.visibility = 'hidden';
             document.getElementById('winner2').style.visibility = 'hidden';
+            document.getElementById('player1Draw').style.visibility = 'hidden';
+            document.getElementById('player2Draw').style.visibility = 'hidden';
         };
 
         this.makeMove = function(chosenSquare) {
