@@ -14,49 +14,50 @@
             <h1>ARCADE SIMULATOR</h1>
         </div>
     </header>
+    <div>
+        <aside class="winnerSidebar">
+            <img src="/images/Winner1.png" alt="winner" class="endGameDisplay game1Won ng-class:{'show':gameModel.is1Won()}" >
+            <img src="/images/Draw.gif" alt="Draw" class="endGameDisplay gameDrawn ng-class:{'show':gameModel.isDrawn()}">
+        </aside>
+        <main class="gameBoard">
+            <div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[0]}}" ng-click="makeMove(0)"></div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[1]}}" ng-click="makeMove(1)"></div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[2]}}" ng-click="makeMove(2)"></div>
 
-    <main>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[3]}}" ng-click="makeMove(3)"></div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[4]}}" ng-click="makeMove(4)"></div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[5]}}" ng-click="makeMove(5)"></div>
 
-
-        <div id="gameBoard">
-
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[0]}}" ng-click="makeMove(0)"></div>
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[1]}}" ng-click="makeMove(1)"></div>
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[2]}}" ng-click="makeMove(2)"></div>
-
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[3]}}" ng-click="makeMove(3)"></div>
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[4]}}" ng-click="makeMove(4)"></div>
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[5]}}" ng-click="makeMove(5)"></div>
-
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[6]}}" ng-click="makeMove(6)"></div>
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[7]}}" ng-click="makeMove(7)"></div>
-            <div class="gridSquare imageDisplay{{ gameModel.gameboard[8]}}" ng-click="makeMove(8)"></div>
-
-        </div>
-    </main>
-
-    <div id="contentContainerAside">
-        <aside>
-
-            <img id="winner1" src="/images/Winner1.png" alt="winner">
-            <img id="winner2" src="/images/Winner2.png" alt="winner">
-
-            <div ng-click="changePlayerType1()" class="changePlayer1 playerTypeImage{{gameModel.player1}}"></div>
-
-            <button id="newGame" ng-click="startNewGame()">Start new game</button>
-
-            <div ng-click="changePlayerType2()" class="changePlayer2 playerTypeImage{{gameModel.player2}}"></div>
-
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[6]}}" ng-click="makeMove(6)"></div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[7]}}" ng-click="makeMove(7)"></div>
+                <div class="gridSquare imageDisplay{{ gameModel.gameboard[8]}}" ng-click="makeMove(8)"></div>
+            </div>
+        </main>
+        <aside class="winnerSidebar">
+            <img src="/images/Winner2.png" alt="winner" class="endGameDisplay game2Won ng-class:{'show':gameModel.is2Won()}" >
+            <img src="/images/Draw.gif" alt="Draw" class="endGameDisplay gameDrawn ng-class:{'show':gameModel.isDrawn()}">
         </aside>
     </div>
+    <div class="newGameContainer">
+        <div class="playerTypeSelectorContainer">
+            <img src="/images/Blank.png" ng-click="changePlayerType1()" class="changePlayer changePlayer1 playerTypeImage{{gameModel.player1}}">
+        </div>
 
-    <div id="contentContainerFooter">
-        <footer>
-            <div>
-                <p id="copyRight">Adam Dixon</p>
-            </div>
-        </footer>
+        <div class="newGameButtonContainer">
+            <button class="newGameButton" ng-click="startNewGame()">Start new game</button>
+        </div>
+
+        <div class="playerTypeSelectorContainer">
+            <img src="/images/Blank.png" ng-click="changePlayerType2()" class="changePlayer changePlayer2 playerTypeImage{{gameModel.player2}}">
+        </div>
     </div>
+
+    <footer>
+        <div>
+            <p id="copyRight">Adam Dixon</p>
+        </div>
+    </footer>
 
 </div>
 <script src="scripts/built.js"></script>

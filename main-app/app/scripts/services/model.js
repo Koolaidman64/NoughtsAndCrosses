@@ -65,5 +65,23 @@ angular.module('noughtsAndCrossesApp')
             this.player2 = player2TypeChange(this.player2);
         };
 
+        this.isDrawn = function(){
+            return this.outcome === 'Draw';
+        };
+
+        this.is1Won = function(){
+            return this.winner === '1';
+        };
+
+        this.is2Won = function(){
+            return this.winner === '2';
+        };
+
+        this.updateModel = function (data){
+            this.gameboard = data.gameboard;
+            this.outcome = data.outcome;
+            this.winner = data.winner;
+        };
+
     return this;
 });
