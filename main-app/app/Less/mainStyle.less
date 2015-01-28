@@ -14,7 +14,6 @@ body {
 
 main {
   display: inline-block;
-  margin-bottom:1px;
 }
 
 aside {
@@ -39,43 +38,61 @@ p {
   margin-bottom: 0px;
 }
 
+footer {
+  width: @fullWidth;
+  height:20px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
 #contentContainer {
-  width: 1000px;
+  width: @fullWidth;
   Margin-left: auto;
   Margin-right: auto;
   background-image:url(/images/content_background.png);
   background-size: 1000px 655px;
 }
 
-#contentContainerAside {
-  width: 1000px;
-  height:200px;
+.newGameContainer {
+  width: @fullWidth;
+  height:@newGameContainerHeight;
   background-color: #000000;
 }
 
-#contentContainerFooter {
-  width: 1000px;
-  height:20px;
-  color: #ffffff;
-  background-color: #000000;
+.endGameDisplay {
+  bottom: 0;
+  display:none;
+  margin: 0 auto;
+
+  &.game1Won{
+
+    height:@winnerSize;
+    width:@winnerSize;
+    margin-top: @mainBoardHeight - @winnerSize - 5px;
+  }
+
+  &.game2Won{
+
+    height:@winnerSize;
+    width:@winnerSize;
+    margin-top: @mainBoardHeight - @winnerSize - 5px;
+  }
+
+  &.gameDrawn{
+
+    height:@drawSize;
+    width:@drawSize;
+    margin-top: @mainBoardHeight - @drawSize - 5px;
+  }
+  &.show {
+    display: block;
+  }
 }
 
-#winner1 {
-  height:155px;
-  width:155px;
-  position:absolute;
-  bottom:155px;
-  margin-left:20px;
-  visibility: hidden;
-}
-
-#winner2 {
-  height:155px;
-  width:155px;
-  position:absolute;
-  bottom:155px;
-  margin-left:825px;
-  visibility: hidden;
+.winnerSidebar {
+  width: @winnerSidebarWidth;
+  height: @mainBoardHeight;
+  display: inline-block;
 }
 
 #copyRight {
@@ -83,27 +100,24 @@ p {
   font-size:30px;
 }
 
-#newGame {
-  width: 453px;
-  height: 100px;
-  margin-left:83px;
-  margin-top:20px;
-  display:inline-block;
-  vertical-align: top;
-}
 
-#gameBoard {
-  width: 480px;
-  height: 450px;
-  margin-left:260px;
+
+.gameBoard {
+  width: @mainBoardWidth;
+  height: @mainBoardHeight;
+  display: inline-block;
+  > div {
+    margin: 0 auto;
+    width: (@gridSquareWidth * 3) + (@gridSquareMargin * 3) + (@gridSquareOutlineWidth * 6);
+  }
 }
 
 .gridSquare {
   background:url(/images/8bitSprite.png) 0 0 no-repeat;
   width: @gridSquareWidth;
   height: @gridSquareHeight;
-  margin:1px;
-  outline: 2px solid;
+  margin:@gridSquareMargin;
+  outline: @gridSquareOutlineWidth solid;
   background-size: 500px,150px;
   overflow: hidden;
   display:inline-block;
@@ -118,15 +132,36 @@ p {
   }
 };
 
-.changePlayer1 {
-  background:url(/images/PlayerTypeSprite.png);
-  background-size: 600px, 175px;
-  width: 175px;
-  height: 175px;
-  overflow: hidden;
+.playerTypeSelectorContainer{
   display:inline-block;
-  position: relative;
+  width:@winnerSidebarWidth;
+}
 
+.newGameButtonContainer {
+  display:inline-block;
+  width:@mainBoardWidth;
+  vertical-align: top;
+  height: @newGameContainerHeight;
+}
+
+
+.newGameButton {
+  width: @gameButtonWidth;
+  height: @gameButtonHeight;
+  display: block;
+  margin:  (@newGameContainerHeight - @gameButtonHeight) / 2 auto;
+
+}
+
+.changePlayer {
+  background:url(/images/PlayerTypeSprite.png);
+  background-size: 600px, @changePlayerSize;
+  width: @changePlayerSize;
+  height: @changePlayerSize;
+  margin: (@newGameContainerHeight - @changePlayerSize) / 2 auto;
+  display: block;
+}
+.changePlayer1 {
   &.playerTypeImagerandom{
     background-position: -190px 0;
   }
@@ -137,16 +172,7 @@ p {
 };
 
 .changePlayer2 {
-  background:url(/images/PlayerTypeSprite.png);
-  background-size: 600px, 175px;
-  width: 175px;
-  height: 175px;
-  overflow: hidden;
-  display:inline-block;
-  position: relative;
-  margin-left:90px;
-
-  &.playerTypeImagerandom{
+   &.playerTypeImagerandom{
     background-position: -190px 0;
   }
 
