@@ -4,16 +4,25 @@ angular.module('noughtsAndCrossesApp')
 
         $scope.gameModel = gameModel;
 
+        var updateTurn = function(promise){
+            promise.then(function(data){
+                $scope.gameModel.updateModel(data);
+            })
+            .catch(function(errorData){
+                alert('Error status:' + errorData.status + '   message:' + errorData.message);
+            });
+        };
 
         $scope.startNewGame = function () {
-            gameAPI.startNewGame($scope.gameModel.player1, $scope.gameModel.player2);
+            updateTurn(gameAPI.startNewGame($scope.gameModel.player1, $scope.gameModel.player2));
             $scope.gameModel.firstPlayer();
         };
 
         $scope.makeMove = function (chosenSquare) {
-            gameAPI.makeMove(chosenSquare);
+            updateTurn(gameAPI.makeMove($scope.gameModel.currentPlayer, chosenSquare));
             gameModel.changePlayerNumber();
         };
+
 
         $scope.changePlayerType1 = function () {
             $scope.gameModel.changePlayerType1();

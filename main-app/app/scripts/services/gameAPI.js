@@ -1,82 +1,47 @@
 
 angular.module('noughtsAndCrossesApp')
-    .service('gameAPI',['$http','gameModel','$q', function($http,gameModel,$q) {
+    .service('gameAPI',['$http','$q', function($http,$q) {
 
-        var serverPost = {
-            method: 'post',
-            url: '',
-            'withCredentials': 'true',
-
-            headers: {
-                'content-type': 'application/json;charset=UTF-8'
-            },
-
-            data: ''
+        var serverPost = function (url, data) {
+            return {
+                method: 'post',
+                url: url,
+                'withCredentials': 'true',
+                headers: {
+                    'content-type': 'application/json;charset=UTF-8'
+                },
+                data: data
+            };
         };
 
-        var server = function () {
-            $http(serverPost).
+        var makeServerCall = function (serverPostData) {
+            var deferred = $q.defer();
+            $http(serverPostData).
                 success(function (data) {
-                    gameModel.gameboard = data.gameboard;
-                    gameModel.outcome = data.outcome;
-                    gameModel.winner = data.winner;
+                    deferred.resolve(data);
 
-                    var winnerOutcome = function() {
-                        var deferred = $q.defer();
-
-                        setTimeout(function () {
-                            if (gameModel.outcome === 'Win') {
-                                deferred.resolve();
-                            } else {
-                                deferred.reject();
-                            }
-                        }, 100);
-
-                        return deferred.promise;
-                    };
-
-                    var promise = winnerOutcome();
-                    promise.then(function() {
-                        winnerDisplay();
-                    }, function() {
-                        drawDisplay();
-                    });
+                })
+                .error(function(data, status){
+                    deferred.reject({status: status, message: data});
                 });
-        };
 
-        var winnerDisplay = function() {
-            if (gameModel.winner === '1') {
-                document.getElementById('winner1').style.visibility = 'visible';
-            }
-            else if (gameModel.winner === '2') {
-                document.getElementById('winner2').style.visibility = 'visible';
-            }
-        };
-
-        var drawDisplay = function() {
-
-            if (gameModel.outcome === 'Draw') {
-                document.getElementById('player1Draw').style.visibility = 'visible';
-                document.getElementById('player2Draw').style.visibility = 'visible';
-            }
+            return deferred.promise;
         };
 
         this.startNewGame = function(player1,player2) {
 
-            serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame';
-            serverPost.data = {'player1': player1,'player2': player2};
-            server();
-            document.getElementById('winner1').style.visibility = 'hidden';
-            document.getElementById('winner2').style.visibility = 'hidden';
-            document.getElementById('player1Draw').style.visibility = 'hidden';
-            document.getElementById('player2Draw').style.visibility = 'hidden';
+            var newGameServerPost = new serverPost ('http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame',
+                {'player1': player1,'player2': player2}
+            );
+            return makeServerCall(newGameServerPost);
+
         };
 
-        this.makeMove = function(chosenSquare) {
-
-            serverPost.url = 'http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove';
-            serverPost.data = {playerNumber:gameModel.currentPlayer, chosenSquare:chosenSquare};
-            server();
+        this.makeMove = function(currentPlayer,chosenSquare) {
+            var moveServerPost = new serverPost ('http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove',
+                {playerNumber:currentPlayer, chosenSquare:chosenSquare}
+            );
+            return makeServerCall(moveServerPost);
         };
 
     }]);
