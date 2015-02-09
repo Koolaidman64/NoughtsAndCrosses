@@ -1,5 +1,5 @@
 
-angular.module('noughtsAndCrossesApp')
+angular.module('tombola.noughtsAndCrosses.directive')
     .directive('gameSquare', function  () {
 
         return {

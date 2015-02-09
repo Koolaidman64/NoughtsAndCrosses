@@ -1,5 +1,5 @@
 
-angular.module('noughtsAndCrossesApp')
+angular.module('tombola.noughtsAndCrosses')
     .controller('NoughtsAndCrossesController',['$scope','gameModel','gameAPI', function ($scope,gameModel,gameAPI) {
 
         $scope.gameModel = gameModel;
@@ -9,7 +9,7 @@ angular.module('noughtsAndCrossesApp')
                 $scope.gameModel.updateModel(data);
             })
             .catch(function(errorData){
-                alert('Error status:' + errorData.status + errorData.message);
+                alert('Error status:' + errorData.status + ' ' + errorData.message);
             });
         };
 
