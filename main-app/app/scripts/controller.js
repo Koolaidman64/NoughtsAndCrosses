@@ -9,7 +9,7 @@ angular.module('tombola.noughtsAndCrosses')
                 $scope.gameModel.updateModel(data);
             })
             .catch(function(errorData){
-                alert('Error status:' + errorData.status + errorData.message);
+                alert('Error status:' + errorData.status + ' ' + errorData.message);
             });
         };
 
