@@ -9,7 +9,7 @@ angular.module('noughtsAndCrossesApp')
                 $scope.gameModel.updateModel(data);
             })
             .catch(function(errorData){
-                alert('Error status:' + errorData.status + '   message:' + errorData.message);
+                alert('Error status:' + errorData.status + errorData.message);
             });
         };
 
