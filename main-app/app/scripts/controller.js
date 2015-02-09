@@ -1,5 +1,5 @@
 
-angular.module('noughtsAndCrossesApp')
+angular.module('tombola.noughtsAndCrosses')
     .controller('NoughtsAndCrossesController',['$scope','gameModel','gameAPI', function ($scope,gameModel,gameAPI) {
 
         $scope.gameModel = gameModel;

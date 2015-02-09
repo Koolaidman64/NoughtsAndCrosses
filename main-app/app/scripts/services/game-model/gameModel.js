@@ -1,5 +1,5 @@
 
-angular.module('noughtsAndCrossesApp')
+angular.module('tombola.noughtsAndCrosses.gameModel')
     .factory ('gameModel', function(){
 
         this.outcome = 'continue';

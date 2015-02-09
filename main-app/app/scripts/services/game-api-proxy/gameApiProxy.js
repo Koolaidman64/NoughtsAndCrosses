@@ -1,5 +1,5 @@
 
-angular.module('noughtsAndCrossesApp')
+angular.module('tombola.noughtsAndCrosses.gameAPI')
     .service('gameAPI',['$http','$q', function($http,$q) {
 
         var serverPost = function (url, data) {
