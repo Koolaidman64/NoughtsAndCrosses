@@ -8,9 +8,9 @@ angular.module('tombola.noughtsAndCrosses')
             promise.then(function(data){
                 $scope.gameModel.updateModel(data);
             })
-            .catch(function(errorData){
-                alert('Error status:' + errorData.status + ' ' + errorData.message);
-            });
+                .catch(function(errorData){
+                    alert('Error status:' + errorData.status + ' ' + errorData.message);
+                });
         };
 
         $scope.startNewGame = function () {
