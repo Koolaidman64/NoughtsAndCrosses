@@ -49,8 +49,32 @@ module.exports = {
         }
     },
 
-    services: {
-        files: 'main-app/app/scripts/services/*',
+    audio: {
+        files: 'main-app/app/scripts/services/audio/*.*',
+        tasks: ['nostart'],
+        options: {
+            spawn: false
+        }
+    },
+
+    gameAPI: {
+        files: 'main-app/app/scripts/services/game-api-proxy/*',
+        tasks: ['nostart'],
+        options: {
+            spawn: false
+        }
+    },
+
+    gameModel: {
+        files: 'main-app/app/scripts/services/game-model/*',
+        tasks: ['nostart'],
+        options: {
+            spawn: false
+        }
+    },
+
+    directives: {
+        files: 'main-app/app/scripts/directives/*.js',
         tasks: ['nostart'],
         options: {
             spawn: false
