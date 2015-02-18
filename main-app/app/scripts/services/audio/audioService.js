@@ -1,6 +1,6 @@
 
 angular.module('tombola.noughtsAndCrosses.audio')
-    .service('audio',function($document) {
+    .service('audio',function($document,$timeout) {
 
         var audioSprite;
         var createSprite = function() {
@@ -9,7 +9,7 @@ angular.module('tombola.noughtsAndCrosses.audio')
             audioSprite = document.createElement('audio');
 
             var audioSource = document.createElement('source');
-            audioSource.src = 'audio/beep.mp3';
+            audioSource.src = 'audio/audioSprite.mp3';
             audioSource.type = 'audio/mp3';
 
             audioSprite.appendChild(audioSource);
@@ -17,13 +17,18 @@ angular.module('tombola.noughtsAndCrosses.audio')
 
         };
 
-        var playAudio = function(startTime) {
-            audioSprite.currentTime = startTime;
+        var playAudio = function(duration) {
+            $timeout(pauseSprite,duration);
+
+            function pauseSprite() {
+                audioSprite.pause();
+            }
+
             audioSprite.play();
         };
 
         this.startNewGameAudio = function() {
-            playAudio(0,100);
+            playAudio(4300);
         };
 
         createSprite();
