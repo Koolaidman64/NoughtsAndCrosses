@@ -1,12 +1,12 @@
 
 angular.module('tombola.noughtsAndCrosses.gameModel')
-    .factory('gameModel', function(){
+    .factory('gameModel', function(gameConstants){
 
     this.outcome = 'continue';
-    this.gameboard = '000000000';
+    this.gameboard = gameConstants.defaultGameBoard;
     this.winner = 0;
-    this.player1 = 'human';
-    this.player2 = 'human';
+    this.player1 = gameConstants.defaultPlayerType1;
+    this.player2 = gameConstants.defaultPlayerType2;
     this.currentPlayer = 1;
 
     var player1TypeChange = function(player1){

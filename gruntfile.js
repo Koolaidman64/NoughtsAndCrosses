@@ -18,18 +18,24 @@ module.exports = function(grunt) {
         watch: fileWatchTask,
         less: lessTask,
         server: expressTask,
-        concat: concatTask
+        concat: concatTask,
 
+        karma: {
+            options: {
+                configFile: 'karma.conf.js'
+            },
+            unit: {
+                singleRun: true
+            }
+        }
     });
 
-
     var port = 35004;
-    grunt.registerTask('server', 'starts the express server', function(){
-        expressTask.listen(port, function() {
+    grunt.registerTask('server', 'starts the express server', function () {
+        expressTask.listen(port, function () {
             console.log('Express server listening on ' + port);
         });
     });
-
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-lesslint');
@@ -38,10 +44,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-karma');
 
-
-    grunt.registerTask('nostart',['jshint','clean:all','concat','copy','less' ]);
-    grunt.registerTask('default',['nostart','server', 'watch']);
+    grunt.registerTask('nostart', ['jshint', 'clean:all', 'concat', 'copy', 'less' ]);
+    grunt.registerTask('default', ['nostart', 'server', 'watch']);
 };
+
 
 
