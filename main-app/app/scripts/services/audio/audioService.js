@@ -17,18 +17,22 @@ angular.module('tombola.noughtsAndCrosses.audio')
 
         };
 
-        var playAudio = function(duration) {
-            $timeout(pauseSprite,duration);
+        var playAudio = function(start, duration) {
+            audioSprite.currentTime = start;
 
-            function pauseSprite() {
+            $timeout(function () {
                 audioSprite.pause();
-            }
+            }, duration);
 
             audioSprite.play();
         };
 
         this.startNewGameAudio = function() {
-            playAudio(4300);
+            playAudio(0,4300);
+        };
+
+        this.makeMoveAudio = function() {
+            playAudio(4.3,550);
         };
 
         createSprite();
