@@ -22,6 +22,7 @@ angular.module('tombola.noughtsAndCrosses')
         $scope.makeMove = function (chosenSquare) {
             updateTurn(gameAPI.makeMove($scope.gameModel.currentPlayer, chosenSquare));
             gameModel.changePlayerNumber();
+            audioService.makeMoveAudio();
         };
 
 

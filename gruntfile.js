@@ -6,6 +6,7 @@ var fileWatchTask = require('./.grunt/filewatchertask');
 var lessTask = require('./.grunt/lessTask');
 var expressTask = require('./server/server.js');
 var concatTask = require('./.grunt/concattask.js');
+var karmaTask = require('./.grunt/karmatask.js');
 
 module.exports = function(grunt) {
 
@@ -19,15 +20,7 @@ module.exports = function(grunt) {
         less: lessTask,
         server: expressTask,
         concat: concatTask,
-
-        karma: {
-            options: {
-                configFile: 'karma.conf.js'
-            },
-            unit: {
-                singleRun: true
-            }
-        }
+        karma: karmaTask
     });
 
     var port = 35004;
