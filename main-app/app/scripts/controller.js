@@ -14,15 +14,15 @@ angular.module('tombola.noughtsAndCrosses')
         };
 
         $scope.startNewGame = function () {
+            audioService.startNewGameAudio();
             updateTurn(gameAPI.startNewGame($scope.gameModel.player1, $scope.gameModel.player2));
             $scope.gameModel.firstPlayer();
-            audioService.startNewGameAudio();
         };
 
         $scope.makeMove = function (chosenSquare) {
+            audioService.makeMoveAudio();
             updateTurn(gameAPI.makeMove($scope.gameModel.currentPlayer, chosenSquare));
             gameModel.changePlayerNumber();
-            audioService.makeMoveAudio();
         };
 
 
