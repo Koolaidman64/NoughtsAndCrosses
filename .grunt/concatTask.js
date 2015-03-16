@@ -9,7 +9,8 @@ module.exports = {
             'main-app/app/scripts/controller.js',
             'main-app/app/scripts/directives/*.js',
             'main-app/app/scripts/services/audio/*.js',
-            'main-app/app/scripts/services/game-api-proxy/*.js',
+            'main-app/app/scripts/services/game-api-proxy/gameApiProxyConstants.js',
+            'main-app/app/scripts/services/game-api-proxy/gameApiProxy.js',
             'main-app/app/scripts/services/game-model/*.js'
         ],
 
