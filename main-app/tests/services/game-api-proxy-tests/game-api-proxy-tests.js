@@ -16,29 +16,49 @@
             });
         });
 
-            it('startNewGame function returns OK', function() {
-                var response = { outcome: 'Continue', gameboard: '010000000', winner: '0' };
+        it('startNewGame function returns OK', function() {
+            var response = { outcome: 'Continue', gameboard: '010000000', winner: '0' };
 
-                $httpBackend
-                    .expectPOST(mocks.gameApiProxyConstants.newGameUrl,
-                        {'player1': 'random','player2': 'human' }
-                     )
+            $httpBackend
+                .expectPOST(mocks.gameApiProxyConstants.newGameUrl,
+                    {'player1': 'random','player2': 'human' }
+                 )
 
-                    .respond(response);
+                .respond(response);
 
-                gameAPI.startNewGame('random', 'human')
-                    .then(function(data){
-                        expect(data).to.deep.equal(response);
-                    })
-                    .catch(function(){
+            gameAPI.startNewGame('random', 'human')
+                .then(function(data){
+                    expect(data).to.deep.equal(response);
+                })
+                .catch(function(){
 
-                    });
-                $httpBackend.flush();
-            });
+                });
+        });
+
+        it('makeMove function returns OK', function() {
+            var response = { outcome: 'Continue', gameboard: '011000000', winner: '0' };
+
+            $httpBackend
+                .expectPOST(mocks.gameApiProxyConstants.makeMoveUrl,
+                {playerNumber:'1', chosenSquare:'2'}
+            )
+
+                .respond(response);
+
+            gameAPI.makeMove('1', '2')
+                .then(function(data){
+                    expect(data).to.deep.equal(response);
+                })
+                .catch(function(){
+
+                });
+        });
 
         afterEach(function () {
+            $httpBackend.flush();
             $httpBackend.verifyNoOutstandingExpectation();
             $httpBackend.verifyNoOutstandingRequest();
+
         });
     });
 }());
