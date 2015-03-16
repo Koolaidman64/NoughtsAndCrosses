@@ -33,7 +33,6 @@
                 .catch(function(){
 
                 });
-            $httpBackend.flush();
         });
 
         it('makeMove function returns OK', function() {
@@ -53,10 +52,10 @@
                 .catch(function(){
 
                 });
-            $httpBackend.flush();
         });
 
         afterEach(function () {
+            $httpBackend.flush();
             $httpBackend.verifyNoOutstandingExpectation();
             $httpBackend.verifyNoOutstandingRequest();
 
