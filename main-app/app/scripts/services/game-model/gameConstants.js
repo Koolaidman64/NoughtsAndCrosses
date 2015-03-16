@@ -1,6 +1,6 @@
 
-angular.module('tombola.noughtsAndCrosses.constants')
-    .constant('gameConstants',{
+angular.module('tombola.noughtsAndCrosses.gameModelConstants')
+    .constant('gameModelConstants',{
 
         defaultGameBoard:'000000000',
         defaultPlayerType1:'human',

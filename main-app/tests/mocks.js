@@ -1,12 +1,7 @@
 
 var mocks = {
-    gameApiConstantMocks: {
-        newGame: 'fakeNewGame',
-        makeMove: 'fakeMakeMove'
-    },
-
-    gameApiProxyMocks: {
-        makeMove:function() { },
-        newGame:function() { }
+    gameApiProxyConstants: {
+        newGameUrl: 'fakeNewGameUrl',
+        makeMoveUrl: 'fakeMakeMoveUrl'
     }
 };

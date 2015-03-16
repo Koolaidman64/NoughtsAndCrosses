@@ -1,6 +1,6 @@
 
 angular.module('tombola.noughtsAndCrosses.gameAPI')
-    .service('gameAPI',['$http','$q', function($http,$q) {
+    .service('gameAPI',function($http, $q, gameApiProxyConstants) {
 
         var serverPost = function (url, data) {
             return {
@@ -30,18 +30,16 @@ angular.module('tombola.noughtsAndCrosses.gameAPI')
 
         this.startNewGame = function(player1,player2) {
 
-            var newGameServerPost = new serverPost ('http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame',
+            var newGameServerPost = new serverPost (gameApiProxyConstants.newGameUrl,
                 {'player1': player1,'player2': player2}
             );
             return makeServerCall(newGameServerPost);
-
         };
 
         this.makeMove = function(currentPlayer,chosenSquare) {
-            var moveServerPost = new serverPost ('http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove',
+            var moveServerPost = new serverPost (gameApiProxyConstants.makeMoveUrl,
                 {playerNumber:currentPlayer, chosenSquare:chosenSquare}
             );
             return makeServerCall(moveServerPost);
         };
-
-    }]);
+});
