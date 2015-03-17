@@ -4,10 +4,10 @@ angular.module('tombola.noughtsAndCrosses.gameModel')
 
     this.outcome = 'continue';
     this.gameboard = gameModelConstants.defaultGameBoard;
-    this.winner = 0;
+    this.winner = gameModelConstants.defaultWinner;
     this.player1 = gameModelConstants.defaultPlayerType1;
     this.player2 = gameModelConstants.defaultPlayerType2;
-    this.currentPlayer = 1;
+    this.currentPlayer = gameModelConstants.defaultCurrentPlayer;
 
     var player1TypeChange = function(player1){
         if(player1 === 'human'){

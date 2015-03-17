@@ -4,6 +4,8 @@ angular.module('tombola.noughtsAndCrosses.gameModelConstants')
 
         defaultGameBoard:'000000000',
         defaultPlayerType1:'human',
-        defaultPlayerType2:'human'
+        defaultPlayerType2:'human',
+        defaultWinner:'0',
+        defaultCurrentPlayer:'1'
 
     });
