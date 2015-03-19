@@ -1,5 +1,6 @@
 
 (function(){
+    'use strict';
     describe('Game model tests',function() {
         var expect = expect.chai;
         var gameModel;
@@ -10,6 +11,7 @@
                 gameModel = $injector.get('gameModel')
             });
         });
+
 
 
     });

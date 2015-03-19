@@ -1,5 +1,6 @@
 
 (function(){
+    'use strict';
     describe('Confirm gameApi calls are correct',function() {
         var $httpBackend;
         var gameAPI;

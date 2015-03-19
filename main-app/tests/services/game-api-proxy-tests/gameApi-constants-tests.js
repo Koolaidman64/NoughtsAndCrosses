@@ -1,5 +1,6 @@
 
 (function(){
+    'use strict';
     describe('GameAPI constants tests',function() {
         var expect = chai.expect;
         var gameApiConstants;
