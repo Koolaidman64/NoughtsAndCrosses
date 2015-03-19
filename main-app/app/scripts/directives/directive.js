@@ -1,4 +1,6 @@
 
+(function(){
+    'use strict';
 angular.module('tombola.noughtsAndCrosses.directive')
     .directive('gameSquare', function  () {
 
@@ -9,4 +11,4 @@ angular.module('tombola.noughtsAndCrosses.directive')
               return '<img src="/images/Blank.png" class="gridSquare imageDisplay{{ gameModel.gameboard[' + attr.number +']}}" ng-click="makeMove(' + attr.number +')"></img>';
             }
         };
-    });
+    })});

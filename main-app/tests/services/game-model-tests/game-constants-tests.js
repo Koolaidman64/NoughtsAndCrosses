@@ -1,5 +1,6 @@
 
 (function(){
+    'use strict';
     describe('Confirm startup constants are correct',function() {
         var expect = chai.expect;
         var gameModelConstants;
