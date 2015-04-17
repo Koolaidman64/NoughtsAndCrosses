@@ -1,5 +1,4 @@
-
-(function() {
+(function () {
     'use strict';
     angular.module('tombola.noughtsAndCrosses')
         .controller('NoughtsAndCrossesController', ['$scope', 'gameModel', 'gameAPI', 'audio', function ($scope, gameModel, gameAPI, audioService) {

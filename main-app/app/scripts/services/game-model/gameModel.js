@@ -6,10 +6,10 @@
 
             this.outcome = 'continue';
             this.gameboard = gameModelConstants.defaultGameBoard;
-            this.winner = gameModelConstants.defaultWinner;
+            this.winner = 0;
             this.player1 = gameModelConstants.defaultPlayerType1;
             this.player2 = gameModelConstants.defaultPlayerType2;
-            this.currentPlayer = gameModelConstants.defaultCurrentPlayer;
+            this.currentPlayer = 1;
 
             var player1TypeChange = function (player1) {
                 if (player1 === 'human') {

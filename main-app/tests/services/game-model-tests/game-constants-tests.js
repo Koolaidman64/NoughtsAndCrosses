@@ -23,14 +23,5 @@
         it('Default player2 type is correctly set to human',function() {
             expect(gameModelConstants.defaultPlayerType2).to.equal('human');
         });
-
-        it('Default player2 type is correctly set to human',function() {
-            expect(gameModelConstants.defaultWinner).to.equal('0');
-        });
-
-        it('Default player2 type is correctly set to human',function() {
-            expect(gameModelConstants.defaultCurrentPlayer).to.equal('1');
-        });
-
     });
 }());
