@@ -5,12 +5,6 @@
         var compile;
         var rootScope;
 
-        beforeEach(
-            module(function($provide) {
-                    $provide.value('tombola.noughtsAndCrosses.directive', function (value) {
-                        return value;
-                    });
-                }));
         beforeEach(inject(function($compile,$rootScope) {
             compile = $compile;
             rootScope = $rootScope;
