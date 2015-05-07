@@ -2,24 +2,25 @@
 (function(){
     'use strict';
     describe('Directive tests',function() {
-        var compile;
-        var rootScope;
+        var $compile;
+        var $rootScope;
 
-        beforeEach(inject(function($compile,$rootScope) {
-            compile = $compile;
-            rootScope = $rootScope;
+        beforeEach(module('tombola.noughtsAndCrosses.directive'));
+
+        beforeEach(inject(function(_$compile_,_$rootScope_) {
+            $compile = _$compile_;
+            $rootScope = _$rootScope_;
         }));
 
         it('Directive Works', function() {
-            var directiveElementHtml = '<game-square number="7"></game-square>';
+            var element = $compile('<game-square number="7"></game-square>')($rootScope);
+            $rootScope.$digest();
 
-            var element = compile(directiveElementHtml)(rootScope);
-            rootScope.$digest();
-
-            expect(element[0].toString()).to.be.equal('[object HTMLElement]');
+            expect(element[0].toString()).to.be.equal('[object HTMLImageElement]');
             expect(element.attr('number')).to.be.equal('7');
-            //Comment by Keith
-
+            expect(element.attr('src')).to.be.equal('/images/Blank.png');
+            expect(element.attr('class')).to.be.equal('gridSquare imageDisplay');
+            expect(element.attr('ng-click')).to.be.equal('makeMove(7)');
         });
     });
 }());
