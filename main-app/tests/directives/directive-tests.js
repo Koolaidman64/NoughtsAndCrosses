@@ -18,6 +18,7 @@
 
             expect(element[0].toString()).to.be.equal('[object HTMLElement]');
             expect(element.attr('number')).to.be.equal('7');
+            //Comment by Keith
 
         });
     });
