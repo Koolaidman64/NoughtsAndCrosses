@@ -20,5 +20,5 @@
             expect(element.attr('number')).to.be.equal('7');
 
         });
-    })
+    });
 }());
