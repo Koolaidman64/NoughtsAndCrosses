@@ -8,7 +8,8 @@ module.exports = {
                 './main-app/app/scripts/modules.js',
                 './main-app/app/scripts/services/game-model/*.js',
                 './main-app/app/scripts/services/game-api-proxy/*.js',
-                './main-app/tests/**/*.js'
+                './main-app/tests/**/*.js',
+                './main-app/tests/*.js'
             ]
         }
     }
