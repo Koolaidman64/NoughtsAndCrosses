@@ -5,6 +5,17 @@ var mocks = {
         makeMoveUrl: 'fakeMakeMoveUrl'
     },
 
-    gameApiProxy: {
-        getResults: function(){ }}
+    gameAPI: {
+        startNewGame: function(){ }
+    },
+
+    gameModel: {
+        updateModel: function(){ },
+        firstPlayer: function(){ }
+    },
+
+    audio: {
+        startNewGameAudio: function(){ },
+        makeMoveAudio: function(){ }
+    }
 };
