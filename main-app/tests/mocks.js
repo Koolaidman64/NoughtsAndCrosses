@@ -6,16 +6,18 @@ var mocks = {
     },
 
     gameAPI: {
-        startNewGame: function(){ }
+        startNewGame: function(){ },
+        makeMove: function(){ }
     },
 
     gameModel: {
         updateModel: function(){ },
-        firstPlayer: function(){ }
+        firstPlayer: function(){ },
+        changePlayerNumber: function(){ }
     },
 
     audio: {
         startNewGameAudio: function(){ },
-        makeMoveAudio: function(){ }
+        makeMoveAudio: function(){ },
     }
 };
