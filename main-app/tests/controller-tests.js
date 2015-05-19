@@ -44,6 +44,10 @@
                 .expects('firstPlayer')
                 .once();
 
+            audioMock
+                .expects('startNewGameAudio')
+                .once();
+
             scope.startNewGame();
         });
 
