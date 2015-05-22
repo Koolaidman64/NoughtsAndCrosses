@@ -51,6 +51,30 @@
             scope.startNewGame();
         });
 
+        it('Check reset calls the makeMove function', function(){
+            var testResult = {winner: '0', gameboard:'000000001'};
+
+            mocks.gameAPI.makeMove = function(){
+                return q.when(testResult);
+            };
+
+            gameModelMock
+                .expects('updateModel')
+                .withArgs(testResult)
+                .once();
+
+            gameModelMock
+                .expects('changePlayerNumber')
+                .once();
+
+            audioMock
+                .expects('makeMoveAudio')
+                .once();
+
+
+            scope.makeMove();
+        });
+
         afterEach(function () {
             scope.$digest();
             gameModelMock.verify();
