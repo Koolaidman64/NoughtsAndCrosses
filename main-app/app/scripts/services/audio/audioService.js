@@ -30,28 +30,3 @@
             createSprite();
         });
 })();
-
-//var audioSprite;
-//var createSprite = function () {
-//
-//    var document = $document[0];
-//    audioSprite = document.createElement('audio');
-//
-//    var audioSource = document.createElement('source');
-//    audioSource.src = 'audio/audioSprite.mp3';
-//    audioSource.type = 'audio/mp3';
-//
-//    audioSprite.appendChild(audioSource);
-//    document.body.appendChild(audioSprite);
-//
-//};
-//
-//var playAudio = function (start, duration) {
-//    audioSprite.currentTime = start;
-//
-//    $timeout(function () {
-//        audioSprite.pause();
-//    }, duration);
-//
-//    audioSprite.play();
-//};
