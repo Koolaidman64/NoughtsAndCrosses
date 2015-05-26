@@ -10,7 +10,6 @@
         var audioMock;
 
         beforeEach(module('tombola.noughtsAndCrosses'));
-
         beforeEach(inject(function($rootScope, $controller, $q){
 
             q = $q;
