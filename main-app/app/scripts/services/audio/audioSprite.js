@@ -4,6 +4,7 @@
     angular.module('tombola.noughtsAndCrosses.audioSprite')
         .service('audioSprite', function($document,$timeout) {
 
+            var me = this;
             var audioSprite,
 
                 createSprite = function(){
@@ -12,7 +13,7 @@
                     $document[0].body.appendChild(audioSprite[0]);
                 };
 
-            this.playAudio = function (start, duration) {
+            me.playAudio = function (start, duration) {
                 audioSprite[0].currentTime = start;
                 audioSprite[0].play();
                 $timeout(function(){
