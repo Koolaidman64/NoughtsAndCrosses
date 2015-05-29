@@ -1,18 +1,24 @@
 
 (function(){
     'use strict';
-    describe('AudioService Tests', function(){
-        var $document;
-        var $timeout;
+    describe('AudioService Tests', function() {
+
+        var audioService;
         var audioSprite;
 
-        beforeEach(module('tombola.noughtsAndCrosses.audio'));
+        beforeEach(function () {
+            module('tombola.noughtsAndCrosses.audioService');
+            module('tombola.noughtsAndCrosses.audioSprite');
+        });
 
-        inject(function($injector) {
-            $timeout = $injector.get('$timeout');
-            $document = $injector.get('$document');
+        inject(function ($injector) {
+            audioService = $injector.get('audioService');
             audioSprite = $injector.get('audioSprite');
 
         });
+
+        it('startNewGameAudio test', function () {
+
+        });
     });
-}());
+})();

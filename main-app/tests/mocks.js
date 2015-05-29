@@ -18,6 +18,6 @@ var mocks = {
 
     audio: {
         startNewGameAudio: function(){ },
-        makeMoveAudio: function(){ },
+        makeMoveAudio: function(){ }
     }
 };

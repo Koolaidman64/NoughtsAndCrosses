@@ -23,7 +23,7 @@
                 $scope: scope,
                 gameModel: mocks.gameModel,
                 gameAPI: mocks.gameAPI,
-                audio: mocks.audio
+                audioService: mocks.audio
             });
         }));
 
