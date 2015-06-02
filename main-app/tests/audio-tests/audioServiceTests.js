@@ -9,6 +9,9 @@
         beforeEach(function () {
             module('tombola.noughtsAndCrosses.audioService');
             module('tombola.noughtsAndCrosses.audioSprite');
+            module(function($provide) {
+                $provide.service('audio',mocks.audio);
+            });
         });
 
         inject(function ($injector) {
@@ -18,7 +21,9 @@
         });
 
         it('startNewGameAudio test', function () {
-
+            mocks.audioService.startNewGameAudio();
+            expect(mocks.audio.playAudio).to.equal(0, 4.5);
         });
+
     });
 })();

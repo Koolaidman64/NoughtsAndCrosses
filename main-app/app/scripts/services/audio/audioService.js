@@ -11,6 +11,5 @@
                 audioSprite.playAudio(4.5, 4.55);
             };
 
-
         });
 })();
