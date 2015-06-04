@@ -1,6 +1,7 @@
+
 (function() {
     'use strict';
-    angular.module('tombola.noughtsAndCrosses.audioService')
+    angular.module('tombola.noughtsAndCrosses.audio')
         .service('audioService', function (audioSprite) {
 
             this.startNewGameAudio = function () {
@@ -10,6 +11,5 @@
             this.makeMoveAudio = function () {
                 audioSprite.playAudio(4.5, 4.55);
             };
-
         });
 })();

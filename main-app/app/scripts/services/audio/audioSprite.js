@@ -1,7 +1,7 @@
 
-(function () {
+(function() {
     'use strict';
-    angular.module('tombola.noughtsAndCrosses.audioSprite')
+    angular.module('tombola.noughtsAndCrosses.audio')
         .service('audioSprite', function ($document, $timeout) {
 
             var me = this;

@@ -7,7 +7,7 @@
         var sandbox;
         var q;
         var gameModelMock;
-        var audioMock;
+        var audioServiceMock;
 
         beforeEach(module('tombola.noughtsAndCrosses'));
         beforeEach(inject(function($rootScope, $controller, $q){
@@ -15,7 +15,7 @@
             q = $q;
             sandbox = sinon.sandbox.create();
             gameModelMock = sinon.sandbox.mock(mocks.gameModel);
-            audioMock = sinon.sandbox.mock(mocks.audio);
+            audioServiceMock = sinon.sandbox.mock(mocks.audioService);
 
             scope = $rootScope.$new();
 
@@ -23,7 +23,7 @@
                 $scope: scope,
                 gameModel: mocks.gameModel,
                 gameAPI: mocks.gameAPI,
-                audioService: mocks.audio
+                audioService: mocks.audioService
             });
         }));
 
@@ -43,7 +43,7 @@
                 .expects('firstPlayer')
                 .once();
 
-            audioMock
+            audioServiceMock
                 .expects('startNewGameAudio')
                 .once();
 
@@ -66,7 +66,7 @@
                 .expects('changePlayerNumber')
                 .once();
 
-            audioMock
+            audioServiceMock
                 .expects('makeMoveAudio')
                 .once();
 

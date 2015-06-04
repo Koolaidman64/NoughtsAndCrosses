@@ -1,16 +1,14 @@
 
-(function(){
+(function() {
     'use strict';
     describe('AudioService Tests', function() {
-
         var audioService;
         var audioSprite;
 
         beforeEach(function () {
-            module('tombola.noughtsAndCrosses.audioService');
-            module('tombola.noughtsAndCrosses.audioSprite');
+            module('tombola.noughtsAndCrosses.audio');
             module(function($provide) {
-                $provide.service('audio',mocks.audio);
+                $provide.service('audioSprite',mocks.audioSprite);
             });
         });
 
@@ -21,8 +19,8 @@
         });
 
         it('startNewGameAudio test', function () {
-//            mocks.audioService.startNewGameAudio();
-//            expect(mocks.audio.playAudio).to.equal(0, 4.5);
+            audioService.startNewGameAudio();
+            expect(audioSprite.playAudio).to.equal(0, 4.5);
         });
 
     });
