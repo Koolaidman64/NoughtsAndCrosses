@@ -10,12 +10,10 @@
         beforeEach(function() {
             module('tombola.noughtsAndCrosses.audioSprite');
 
-            inject(function ($injector) {
-                $timeout = $injector.get('$timeout');
+            inject(function (_$injector_) {
+                $timeout = _$injector_;
             });
         });
-
-
 
     });
 })();
