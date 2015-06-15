@@ -2,22 +2,38 @@
 (function() {
     'use strict';
     describe('AudioService Tests', function() {
+        var sandbox;
         var audioService;
+        var audioSprite;
+        var audioSpriteMock;
 
         beforeEach(function () {
             module('tombola.noughtsAndCrosses.audio');
-            module(function($provide) {
-                $provide.value('audioService',mocks.audioService);
+            module(function($provide){
+                $provide.value('audioSprite', mocks.audioSprite);
             });
+            inject(function($injector){
 
-            inject(function(_audioService_){
-                audioService = _audioService_;
-            })
+                sandbox = sinon.sandbox.create();
+                audioSpriteMock = sinon.sandbox.mock(mocks.audioSprite);
+                audioService = $injector.get('audioService');
+
+            });
         });
 
         it('startNewGameAudio test', function () {
-            mocks.audioService.startNewGameAudio();
+
+            audioSpriteMock
+                .expects('playAudio')
+                .withArgs(0, 4.5)
+                .once();
+
+            audioService.startNewGameAudio();
         });
 
+        afterEach(function () {
+            audioSpriteMock.verify();
+            sandbox.restore();
+        });
     });
 })();
