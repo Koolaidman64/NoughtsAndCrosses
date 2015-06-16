@@ -3,9 +3,9 @@
     'use strict';
     describe('AudioSprite tests', function () {
 
-        var $timeout;
-        var $document;
-        var audioSprite;
+        var $timeout,
+         $document,
+         audioSprite;
 
         beforeEach(function() {
             module('tombola.noughtsAndCrosses.audioSprite');

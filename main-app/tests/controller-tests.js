@@ -2,12 +2,12 @@
 (function(){
     'use strict';
     describe('Controller Tests', function(){
-        var scope;
-        var controller;
-        var sandbox;
-        var q;
-        var gameModelMock;
-        var audioServiceMock;
+        var scope,
+         controller,
+         sandbox,
+         q,
+         gameModelMock,
+         audioServiceMock;
 
         beforeEach(module('tombola.noughtsAndCrosses'));
         beforeEach(inject(function($rootScope, $controller, $q){
@@ -34,18 +34,9 @@
                 return q.when(testResult);
             };
 
-            gameModelMock
-                .expects('updateModel')
-                .withArgs(testResult)
-                .once();
-
-            gameModelMock
-                .expects('firstPlayer')
-                .once();
-
-            audioServiceMock
-                .expects('startNewGameAudio')
-                .once();
+            gameModelMock.expects('updateModel').withArgs(testResult).once();
+            gameModelMock.expects('firstPlayer').once();
+            audioServiceMock.expects('startNewGameAudio').once();
 
             scope.startNewGame();
         });
@@ -57,19 +48,9 @@
                 return q.when(testResult);
             };
 
-            gameModelMock
-                .expects('updateModel')
-                .withArgs(testResult)
-                .once();
-
-            gameModelMock
-                .expects('changePlayerNumber')
-                .once();
-
-            audioServiceMock
-                .expects('makeMoveAudio')
-                .once();
-
+            gameModelMock.expects('updateModel').withArgs(testResult).once();
+            gameModelMock.expects('changePlayerNumber').once();
+            audioServiceMock.expects('makeMoveAudio').once();
 
             scope.makeMove();
         });

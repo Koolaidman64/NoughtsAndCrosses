@@ -2,8 +2,8 @@
 (function(){
     'use strict';
     describe('Directive tests',function() {
-        var $compile;
-        var $rootScope;
+        var $compile,
+         $rootScope;
 
         beforeEach(module('tombola.noughtsAndCrosses.directive'));
 
