@@ -16,8 +16,13 @@ var mocks = {
         changePlayerNumber: function(){ }
     },
 
-    audio: {
+    audioService: {
         startNewGameAudio: function(){ },
-        makeMoveAudio: function(){ },
+        makeMoveAudio: function(){ }
+    },
+
+    audioSprite: {
+        playAudio: function(){ }
     }
+
 };

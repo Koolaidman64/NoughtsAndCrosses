@@ -79,6 +79,14 @@ module.exports = {
         options: {
             spawn: false
         }
+    },
+
+    tests: {
+        files: './main-app/tests/**/*.js',
+        tasks: ['nostart'],
+        options: {
+            spawn: false
+        }
     }
 
 };

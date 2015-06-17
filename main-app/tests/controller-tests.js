@@ -2,12 +2,12 @@
 (function(){
     'use strict';
     describe('Controller Tests', function(){
-        var scope;
-        var controller;
-        var sandbox;
-        var q;
-        var gameModelMock;
-        var audioMock;
+        var scope,
+         controller,
+         sandbox,
+         q,
+         gameModelMock,
+         audioServiceMock;
 
         beforeEach(module('tombola.noughtsAndCrosses'));
         beforeEach(inject(function($rootScope, $controller, $q){
@@ -15,7 +15,7 @@
             q = $q;
             sandbox = sinon.sandbox.create();
             gameModelMock = sinon.sandbox.mock(mocks.gameModel);
-            audioMock = sinon.sandbox.mock(mocks.audio);
+            audioServiceMock = sinon.sandbox.mock(mocks.audioService);
 
             scope = $rootScope.$new();
 
@@ -23,7 +23,7 @@
                 $scope: scope,
                 gameModel: mocks.gameModel,
                 gameAPI: mocks.gameAPI,
-                audio: mocks.audio
+                audioService: mocks.audioService
             });
         }));
 
@@ -34,18 +34,9 @@
                 return q.when(testResult);
             };
 
-            gameModelMock
-                .expects('updateModel')
-                .withArgs(testResult)
-                .once();
-
-            gameModelMock
-                .expects('firstPlayer')
-                .once();
-
-            audioMock
-                .expects('startNewGameAudio')
-                .once();
+            gameModelMock.expects('updateModel').withArgs(testResult).once();
+            gameModelMock.expects('firstPlayer').once();
+            audioServiceMock.expects('startNewGameAudio').once();
 
             scope.startNewGame();
         });
@@ -57,19 +48,9 @@
                 return q.when(testResult);
             };
 
-            gameModelMock
-                .expects('updateModel')
-                .withArgs(testResult)
-                .once();
-
-            gameModelMock
-                .expects('changePlayerNumber')
-                .once();
-
-            audioMock
-                .expects('makeMoveAudio')
-                .once();
-
+            gameModelMock.expects('updateModel').withArgs(testResult).once();
+            gameModelMock.expects('changePlayerNumber').once();
+            audioServiceMock.expects('makeMoveAudio').once();
 
             scope.makeMove();
         });
