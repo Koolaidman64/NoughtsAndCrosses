@@ -4,7 +4,6 @@
     describe('AudioService Tests', function() {
         var sandbox,
          audioService,
-         audioSprite,
          audioSpriteMock;
 
         beforeEach(function () {
