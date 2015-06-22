@@ -20,9 +20,8 @@
         it("Ensure audioSprite it set correctly", function() {
             var createSprite = function() {
 
-                var doc = $document[0];
-                var body = doc.body;
-                var lastElement = body.children[body.children.length -1 ];
+                var body = $document[0].body;
+                var lastElement= $document[0].body.children[body.children.length -1];
                 var innerElement = lastElement.children[0];
 
                 assert.equal(innerElement.localName, 'source');
