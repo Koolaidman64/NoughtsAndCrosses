@@ -22,7 +22,9 @@ var mocks = {
     },
 
     audioSprite: {
-        playAudio: function(){ }
+        playAudio: function(){ },
+        play: function(){ },
+        pause: function(){ }
     }
 
 };
