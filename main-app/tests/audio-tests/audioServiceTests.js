@@ -6,7 +6,7 @@
          audioService,
          audioSpriteMock;
 
-        beforeEach(function () {
+        beforeEach(function() {
             module('tombola.noughtsAndCrosses.audio');
             module(function($provide){
                 $provide.value('audioSprite', mocks.audioSprite);
